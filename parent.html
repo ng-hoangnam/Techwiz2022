@@ -1,0 +1,129 @@
+<div class="container">
+    <div class="d-block d-sm-flex justify-content-between align-items-center">
+        <div>
+            <p class="navbar-brand text-weight-bold">Hello: <span class="h3">{{parent}}</span></p>
+            <p class="navbar-brand text-weight-bold">Parent of: <span class="h3">{{student}}</span></p>
+            <p class="navbar-brand text-weight-bold">Teacher: <span class="h3">{{teacherparentname}}</span></p>
+        </div>
+        <button type="button" class="btn btn-danger" ng-click="handleLogout()">Log out</button>
+    </div>
+</div>
+
+<!-- your mark -->
+<div class="container" id="mark">
+
+    <div class="row">
+        <div class="col-md-6 my-4 ">
+            <div class="d-flex justify-content-center d-md-block mb-3">
+                <h2>
+                    View mark
+                </h2>
+            </div>
+            <table class="table ">
+                <tr class="table-warning">
+                    <td>Subject</td>
+                    <td>Mark</td>
+                </tr>
+                <tbody>
+                    <tr ng-repeat="lst in lst_subject">
+                        <td>{{lst.name | uppercase}}</td>
+                        <td>{{lst.mark}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <!-- academic progress -->
+        <div class="col-md-6 my-4">
+            <div class="d-flex justify-content-center d-md-block mb-3">
+                <h2 class="text-end">
+                    Academic Progress
+                </h2>
+            </div>
+            <div class="progress" style="height: 20px;">
+                <div class="progress-bar bg-warning" role="progressbar" style="width: {{progress}}%;" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="text-center">{{progress}}%</div>
+        </div>
+    </div>
+</div>
+<!-- feedback -->
+
+<div class="container my-5">
+
+    <div class="row">
+        <div class="d-none d-md-block col-md-6 my-4">
+            <div class="contact_img-box">
+                <img src="images/students.jpg" alt="">
+            </div>
+        </div>
+        <div class="col-md-6 my-4">
+            <div class="d-flex justify-content-center d-md-block mb-3">
+                <h2>
+                    Feedback to teacher {{teacherparentname}}:
+                </h2>
+            </div>
+            <div>
+                <span class="text-danger">{{errors}}</span>
+                <span class="text-success">{{successFB}}</span>
+            </div>
+            <form action="" class="form-group">
+                <div class="contact_form-container">
+                    <div>
+                        <div>
+                            <input class="form-control rounded-0" type="text" placeholder="Title" ng-model="title">
+                        </div>
+                        <div class="mt-5">
+                            <textarea class="form-control rounded-0" placeholder="Message" ng-model="mess" rows="5"></textarea>
+                        </div>
+                        <div class="mt-5">
+                            <button class="btn btn-warning" type="button" ng-click="feedback()">
+                                Send
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</div>
+<!-- feedback history -->
+<div class="container my-3" id="feedback">
+    <div class="d-flex justify-content-center d-md-block mb-3">
+        <h2>
+            Feedback history
+        </h2>
+    </div>
+    <div>
+        <table class="table">
+            <tr class="table-warning">
+                <td>To</td>
+                <td>Title</td>
+                <td>Content</td>
+            </tr>
+            <tbody>
+                <tr ng-repeat="fb in feedbacks">
+                    <td>{{fb.nameTC}}</td>
+                    <td>{{fb.title}}</td>
+                    <td>{{fb.mess}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<!-- hotline -->
+<div class="hotline d-none d-md-flex row bg-warning">
+    <div class="col-3 d-flex align-items-center">
+        <i class="bi bi-headset"></i>
+    </div>
+    <div class="col-9 pe-5 text-nowrap">
+        Teacher's phone <br>
+        +84 (0) 93 453 7374
+    </div>
+</div>

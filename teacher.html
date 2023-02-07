@@ -1,0 +1,322 @@
+<div class="container">
+    <div class="d-block d-sm-flex justify-content-between align-items-center">
+        <p class="navbar-brand text-weight-bold">Hello : <span class="h3">{{teachername}}</span></p>
+        <button type="button" class="btn btn-danger" ng-click="handleLogout()">Log out</button>
+    </div>
+</div>
+
+<!-- your mark -->
+<div class="container" id="mark">
+    <div class="row">
+        <div class="col-xl-6 my-4">
+            <div class="d-flex justify-content-center d-md-block mb-3">
+                <h2>
+                    Marks
+                </h2>
+            </div>
+            <form class="form-group" action="">
+                <table class="table tablescroll">
+                    <tr class="table-warning">
+                        <td>Name</td>
+                        <td>Math</td>
+                        <td>Physic</td>
+                        <td>Chemist</td>
+                        <td>Update</td>
+                        <td>Delete</td>
+                    </tr>
+
+                    <tr ng-repeat="student in list">
+                        <td class="text-nowrap">{{student.name}}</td>
+                        <td>{{student.mark.math}}</td>
+                        <td>{{student.mark.physic}}</td>
+                        <td>{{student.mark.chemist}}</td>
+                        <td class="justify-content-center">
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#exampleModal" ng-click="edit($index)">
+                                <i class="bi bi-pencil-square"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" ng-click="del($index)">
+                                <i class="bi bi-trash3"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+                <div class="d-flex">
+                    <tfoot>
+                        <tr>
+                            <td><input type="text" class="form-control" placeholder="Name" ng-model="addname"></td>
+                            <td><input type="number" class="form-control" placeholder="Mark" ng-model="addmath"></td>
+                            <td><input type="number" class="form-control" placeholder="Mark" ng-model="addphysic"></td>
+                            <td><input type="number" class="form-control" placeholder="Mark" ng-model="addchemist"></td>
+                            <td><input type="number" class="form-control" placeholder="Progress" ng-model="addprogress">
+                            </td>
+                            <td><button class="btn btn-warning form-control" type="button" ng-click="add()">
+                                    <i class="bi bi-person-plus"></i>
+                                </button></td>
+                        </tr>
+                    </tfoot>
+                </div>
+                <div>
+                    <span class="text-danger">{{errorsaddst}}</span>
+                    <span class="text-success">{{successaddst}}</span>
+                </div>
+            </form>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Update Student Information:</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input class="form-control" type="text" ng-model="name">
+                                <input type="text" ng-model="index" hidden>
+                            </div>
+                            <div>
+                                <label>Mark-Math</label>
+                                <input class="form-control" type="text" ng-model="math">
+                            </div>
+                            <div>
+                                <label>Mark-Physic</label>
+                                <input class="form-control" type="text" ng-model="physic">
+                            </div>
+                            <div>
+                                <label>Mark-Chemist</label>
+                                <input class="form-control" type="text" ng-model="chemist">
+                            </div>
+                            <div>
+                                <label>Parents</label>
+                                <input class="form-control" type="text" ng-model="parents">
+                            </div>
+                            <div>
+                                <label>Progress</label>
+                                <input class="form-control" type="text" ng-model="progress">
+                            </div>
+                            <div>
+                                <label>Teacher Name</label>
+                                <input class="form-control" type="text" ng-model="teachername">
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" ng-click="save()" class="btn btn-primary close" data-dismiss="modal"
+                                aria-label="Close">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- academic progress -->
+        <div class="col-xl-6 my-4">
+            <div class="d-flex justify-content-center d-md-block">
+                <h2 class="text-end">
+                    Academic Progress
+                </h2>
+            </div>
+            <div ng-repeat="student in list">
+                <div>
+                    {{student.name}}
+                </div>
+                <div class="progress" style="height: 20px;">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: {{student.progress}}% ; "
+                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <button class="btn btn-primary" ng-click="downprogress($index)"><i
+                                class="bi bi-arrow-left-short"></i></button>
+                    </div>
+                    <div>
+                        {{student.progress}} %
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" ng-click="upprogress($index)"><i
+                                class="bi bi-arrow-right-short"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- study resource -->
+<div class="container" id="resource">
+
+    <div class="row">
+        <!-- revision class -->
+        <div class="col-md-6 my-4">
+            <div class="d-flex justify-content-center d-md-block mb-3">
+                <h2>
+                    Revision class
+                </h2>
+            </div>
+            <div class="ps-3">
+                Student list:
+            </div>
+            <div class="ps-3">
+                <ol ng-repeat="student in list">
+                    {{$index+1}}. {{student.name}}
+                </ol>
+            </div>
+            <div class="ps-3">
+                Schedule:
+            </div>
+            <ol>
+                <li ng-repeat="time in time_rev track by $index">{{time}}</li>
+            </ol>
+            <div class="ps-3">
+                Add next Schedule
+            </div>
+            
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="YYYY/mm/DD" ng-model="adddate">
+                    <input type="text" class="form-control" placeholder="00:00:00" ng-model="addtime">
+                </div>
+                <div>
+                    <span class="text-danger">{{errorsaddschedule}}</span>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-warning" ng-click="addschedule()">Add schedule</button>
+                </div>
+            
+        </div>
+        <div class="col-md-6 my-4">
+            <div class="d-flex justify-content-center d-md-block mb-3">
+                <h2 class="text-end">
+                    Your Resource
+                </h2>
+            </div>
+            <form action="" class="form-group">
+                <table class="table ">
+                    <tr class="table-warning">
+                        <td>Subject</td>
+                        <td>Resource</td>
+                    </tr>
+                    <tbody>
+                        <tr ng-repeat="rs in src">
+                            <td>{{rs.subject}}</td>
+                            <td><a href="{{rs.url}}" target="_blank">{{rs.title}}</a></td>
+                        </tr>
+                    </tbody>
+                    <tr>
+                        <td><input type="text" class="form-control" placeholder="Subject" ng-model="addDocsubject"></td>
+                        <td><input type="text" class="form-control" placeholder="Title" ng-model="addDoctitle"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="text" class="form-control" placeholder="Link to resource"
+                                ng-model="addDocresource"></td>
+                    </tr>
+                    </tbody>
+
+                </table>
+                <div>
+                    <span class="text-danger">{{errorsadddoc}}</span>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button type="button" class="btn btn-warning" ng-click="addDoc()">Add document</button>
+                </div>
+            </form>
+
+
+        </div>
+
+
+    </div>
+</div>
+<!-- feedback -->
+<div class="container my-3" id="feedback">
+    <div class="d-flex justify-content-center d-md-block mb-3">
+        <h2>
+            Feedback
+        </h2>
+    </div>
+    <div>
+        <table class="table">
+            <tr class="table-warning">
+                <td>From</td>
+                <td>Title</td>
+                <td>Content</td>
+            </tr>
+            <tbody>
+                <tr ng-repeat="fb in feedback">
+                    <td>{{fb.nameST}}</td>
+                    <td>{{fb.title}}</td>
+                    <td>{{fb.mess}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="container my-5">
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="d-flex justify-content-center d-md-block">
+                <h2>
+                    Send announcement to students in your class:
+                </h2>
+            </div>
+            <form action="" class="form-group">
+                <div class="contact_form-container">
+                    <div>
+                        <div class="mt-2">
+                            <input class="form-control rounded-0" type="text" placeholder="Title"
+                                ng-model="titleadvice">
+                        </div>
+                        <div class="mt-3">
+                            <textarea class="form-control rounded-0" style="resize: none;" rows="5"
+                                placeholder="Message" ng-model="messadvice"></textarea>
+                        </div>
+                        <div>
+                            <span class="text-danger">{{erroradvice}}</span>
+                            <span class="text-success">{{success}}</span>
+                        </div>
+                        <div class="mt-3">
+                            <button class="btn btn-warning" type="button" ng-click="sendadvice()">
+                                Send
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+        <div class="d-none d-md-block col-md-6">
+            <div class="contact_img-box">
+                <img src="images/students.jpg" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Confirm Delete Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalTitle">Alert !!!</h5>
+            </div>
+            <div class="modal-body">
+                Are you sure to delete field ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" ng-click="confirmdel()" data-dismiss="modal">Confirm</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

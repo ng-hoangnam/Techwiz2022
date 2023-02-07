@@ -1,0 +1,247 @@
+@font-face {
+    font-family: gotham;
+    font-weight: 400;
+    src: url(../assets/fonts/GothamRnd-Book.woff);
+}
+
+@font-face {
+    font-family: gotham;
+    font-weight: 700;
+    src: url(../assets/fonts/GothamRnd-Bold_0.woff);
+}
+
+body {
+    font-family: gotham;
+    background-image: url("../images/imageedit_1_7311046570.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+textarea {
+    resize: none;
+}
+
+
+/*--------------------------------------------------------------
+# Edit bootstrap Class
+--------------------------------------------------------------*/
+.lp-input-text {
+    border: none !important;
+    border-bottom: 1px solid #e1e1e1 !important;
+    box-shadow: none !important;
+}
+
+.lp-input-text:hover {
+    border-bottom: 1px solid #162d3d !important;
+}
+
+.lp-input-text:focus {
+    border-bottom: 3px solid #ffca2c !important;
+}
+
+.lp-input-text~label {
+    padding: 1.4rem 1.5rem !important;
+    font-size: 1.3em !important;
+}
+
+.lp-input-text:not(:placeholder-shown)~label,
+.lp-input-text:focus~label {
+    transform: scale(.65) translateY(-1rem) translateX(0.65rem) !important;
+}
+
+.lp-input-radio:checked {
+    background-color: #ffca2c !important;
+    border-color: #ffca2c !important;
+}
+
+.lp-input-radio:focus {
+    box-shadow: none !important;
+}
+
+/**
+ * General Section
+ */
+
+.flex-wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.clock {
+    font-size: 16px;
+    padding: 0.75rem 1.5rem !important;
+    background-color: #FCE2DB;
+}
+
+.f-18 {
+    font-size: 18px;
+}
+
+
+/* 2D TRANSITIONS */
+/* Grow */
+.hvr-grow {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+}
+
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    background-color: #fff;
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+
+/**
+ * Logo Navigation 
+*/
+.img-logo {
+    max-height: 30px;
+    max-width: 30px;
+}
+
+/**
+* Desktop Navigation 
+**/
+.navbar {
+    padding: 0;
+}
+
+.navbar ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.navbar a,
+.navbar a:focus {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 22px;
+    color: #000;
+    white-space: nowrap;
+    transition: 0.3s;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.navbar a i,
+.navbar a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+}
+
+/**
+  * Mobile Navigation 
+**/
+.mobile-nav-toggle {
+    color: #000;
+    font-size: 32px;
+    display: none;
+    line-height: 0;
+    transition: 0.5s;
+}
+
+@media (max-width: 991px) {
+    .mobile-nav-toggle {
+        display: block;
+    }
+
+    .navbar ul {
+        display: none;
+    }
+}
+
+@media (max-width:550px) {
+    table.table.tablescroll {
+        display: block !important;
+        overflow: scroll !important;
+    }
+
+    .img-logo {
+        max-height: 30px;
+        max-width: 30px;
+    }
+
+    .lp-input-text {
+        font-size: 16px !important;
+    }
+}
+
+/** 
+*Landing Page Template 
+*/
+.t-75 {
+    font-size: calc(22px + (75 - 22) * ((100vw - 375px) / (1920 - 375)));
+}
+
+.form-check {
+    width: 14rem;
+}
+
+/* Temlate Hotline */
+.hotline {
+    position: fixed;
+    top: 50vh;
+    right: 0;
+    opacity: 0.7;
+    transform: translateX(12.5rem);
+    transition: all 0.4s;
+    cursor: pointer;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.hotline:hover {
+    transform: translateX(0);
+}
+
+/**
+ * Footer Section
+ */
+.foot {
+    margin-top: auto;
+}
+
+img {
+    width: 100% !important;
+}
+
+.shadown-text {
+    text-shadow: 1px 1px 2px #777777;
+}
+
+.content-text {
+    max-width: 680px;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.foot-link {
+    cursor: pointer;
+    margin-left: 4px;
+}
+
+.foot-link:hover {
+    text-decoration: underline;
+}

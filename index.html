@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>eStudiez</title>
+
+  <link rel="icon" href="./images/mortarboard.png">
+
+  <!-- Add Angular JS File -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-route/1.8.3/angular-route.min.js"></script>
+
+  <!-- Add Bootstrap CSS File -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+  <!-- Font Awsome-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+  <!-- Add CSS File  -->
+  <link rel="stylesheet" href="./css/main.css?ver=1.0.1">
+
+  <!-- JQuery JS File -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  
+  <!-- Add Bootstrap JS File -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" 
+    crossorigin="anonymous"></script>
+
+</head>
+
+<body ng-app="myApp">
+
+  <!-- Template AngularJS -->
+  <div class="flex-wrapper">
+    <div id="header" class="fixed-top d-flex align-items-center bg-warning" style="padding: 2px 0;">
+      <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center">
+          <div class="img-logo">
+            <img src="images/mortarboard.png" alt="logo">
+          </div>
+          <a class="navbar-brand p-2 f-18" href="#">
+            <p class="d-inline fw-bold shadown-text"><span class="text-dark">e</span><span
+                class="text-danger">Studiez</span></p>
+          </a>
+          <div class="text-dark ms-4 d-none d-sm-block" style="font-size: 0.8rem;"><i class="bi bi-person-fill"></i> <span class="website-counter"></span></div>
+        </div>
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link hvr-grow" href="#!">Home</a></li>
+            <li><a class="nav-link hvr-grow" href="#!/about">About</a></li>
+            <li><a class="nav-link hvr-grow" href="#!/contact">Contact</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle p-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+            aria-controls="offcanvasRight"></i>
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+              <h5 id="offcanvasRightLabel">Main menu</h5>
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <button type="button" class="btn btn-white container-fluid" data-bs-dismiss="offcanvas"><a
+                  class="nav-link" href="#!">Home</a></button>
+              <button type="button" class="btn btn-white container-fluid" data-bs-dismiss="offcanvas"><a
+                  class="nav-link" href="#!about">About</a></button>
+              <button type="button" class="btn btn-white container-fluid" data-bs-dismiss="offcanvas"><a
+                  class="nav-link" href="#!contact">Contact</a></button>
+              <div class="text-dark mt-5 ms-4 text-center" style="font-size: 0.8rem;"><i class="bi bi-person-fill"></i> <span class="website-counter-mobile"></span></div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div style="height: 65px;"></div>
+    <div ng-view></div>
+    <div class="container-fluid bg-warning mt-5 foot">
+      <div class="container-fluid">
+        <div class="col d-flex justify-content-end mt-2">HelloWorld.txt &copy;
+          <a class="nav-link" href="https://aptechvietnam.com.vn/" target="_blank"> TechWiz 2022</a>
+        </div>
+        <div class="col d-flex justify-content-end mt-2">
+          Contact us:
+          <a class="nav-link foot-link" data-toggle="modal" data-target="#teamModal">HelloWorld.txt</a>
+        </div>
+        <div class="col d-flex justify-content-end mt-2 mb-2">
+          Mail:
+          <a class="nav-link foot-link" href="mailto:helloworld.txt.job@aptechlearning.edu.vn">
+            helloworld.txt.job@aptechlearning.edu.vn
+          </a>
+        </div>
+        <!-- Modal team picture -->
+        <div class="modal fade" id="teamModal" tabindex="-1" role="dialog" aria-labelledby="teamModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="teamModalLabel">HelloWorld.txt Team TechWiz 2022</h5>
+              </div>
+              <div class="modal-body">
+                <img src="./images/staff/HELLOWORLD.TXT.jpg" alt="HelloWorld.txt">
+              </div>
+              <div class="modal-footer">
+                Phone number: +84 85 247 0666
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- clock and geo location -->
+  <div class="clock fixed-bottom ms-5 px-2 d-none d-md-block" style="right:auto; bottom: 0.75rem; opacity: 0.7;">
+    <div id="Date" class="text-align-left fw-bold"></div>
+    <ul class="ultime px-0 my-0">
+      <li class="geo d-inline-block fw-bold"></li>
+      <li class="d-inline-block fw-bold">-</li>
+      <li class="idtime d-inline-block fw-bold" id="hours"></li>
+      <li class="idtime d-inline-block fw-bold" id="point">:</li>
+      <li class="idtime d-inline-block fw-bold" id="min"></li>
+      <li class="idtime d-inline-block fw-bold" id="point">:</li>
+      <li class="idtime d-inline-block fw-bold" id="sec"></li>
+    </ul>
+    <div class="toggle-btn-clock" style="display:none;">
+      <b><i class="bi bi-clock"></i></b>
+    </div>
+  </div>
+
+  <!-- Clock -->
+  <script>
+    //clock and location button
+    $('.clock').on('click', () => {
+      $(".geo").toggle();
+      $('#Date').toggle();
+      $('.ultime').toggle();
+      $('.toggle-btn-clock').toggle();
+
+    })
+    //clock function
+    $(document).ready(function () {
+
+      // Create two variable with the names of the months and days in an array
+      var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+
+      // Create a newDate() object
+      var newDate = new Date();
+      // Extract the current date from Date object
+      newDate.setDate(newDate.getDate());
+      // Output the day, date, month and year   
+      $('#Date').html(dayNames[newDate.getDay()] + " " + newDate.getDate() + ' ' + monthNames[newDate.getMonth()] + ' ' + newDate.getFullYear());
+
+      setInterval(function () {
+        // Create a newDate() object and extract the seconds of the current time on the visitor's
+        var seconds = new Date().getSeconds();
+        // Add a leading zero to seconds value
+        $("#sec").html((seconds < 10 ? "0" : "") + seconds);
+      }, 1000);
+
+      setInterval(function () {
+        // Create a newDate() object and extract the minutes of the current time on the visitor's
+        var minutes = new Date().getMinutes();
+        // Add a leading zero to the minutes value
+        $("#min").html((minutes < 10 ? "0" : "") + minutes);
+      }, 1000);
+
+      setInterval(function () {
+        // Create a newDate() object and extract the hours of the current time on the visitor's
+        var hours = new Date().getHours();
+        // Add a leading zero to the hours value
+        $("#hours").html((hours < 10 ? "0" : "") + hours);
+      }, 1000);
+    });
+
+    //map footer
+    $('.mapopen').on('click', () => {
+      $(".maptoggle").toggle();
+    })
+  </script>
+
+  <!-- Clock end -->
+
+  <!-- Add AnglarJS Control Main File -->
+  <script src="./js/angular-control.js"></script>
+
+  <!-- Add JavaScript Main File -->
+  <script src="./js/main.js"></script>
+  <!-- geo -->
+  <script src="./js/geo.js"></script>
+
+  <script>
+    var counterContainer = document.querySelector(".website-counter");
+    var visitCount = localStorage.getItem("page_view");
+
+    // Check if page_view entry is present
+    if (visitCount) {
+      visitCount = Number(visitCount) + 1;
+      localStorage.setItem("page_view", visitCount);
+    } else {
+      visitCount = 1;
+      localStorage.setItem("page_view", 1);
+    }
+    counterContainer.innerHTML = visitCount;
+
+    document.querySelector(".website-counter-mobile").innerHTML = visitCount;
+  </script>
+</body>
+
+</html>
